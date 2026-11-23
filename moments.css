@@ -1,0 +1,145 @@
+:root, #paper {
+  --pencil: var(--graphite, #44392f);
+  --marker: var(--ink, #a3312d);
+  --pencil-line: #b5a99c;
+  --moment-font: var(--card-hand, RedPencil, DeskHand, "Kaiti SC", STKaiti, KaiTi, cursive);
+}
+
+#negotiation { container-type: inline-size; }
+.table-bid, .table-offer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .65rem 1rem;
+  margin: 0;
+  color: var(--pencil);
+  font-family: var(--moment-font);
+  text-align: left;
+}
+.bid-title {
+  display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem .5rem;
+  margin: 0;
+  color: var(--pencil);
+  font: 400 clamp(1.25rem, 2.5vw, 1.65rem)/1.3 var(--moment-font);
+}
+.bid-title strong {
+  color: var(--marker);
+  white-space: nowrap;
+  font: 400 clamp(1.45rem, 3.1vw, 2rem)/1.24 var(--moment-font);
+  font-variant-numeric: tabular-nums;
+}
+.bid-actions, .bid-decision {
+  display: flex; align-items: center; gap: .45rem;
+}
+.table-bid > .bid-actions { margin-left: auto; }
+.bid-decision { gap: .65rem; margin-left: auto; }
+.bid-decision > span { white-space: nowrap; font: 400 1.15rem/1.35 var(--moment-font); }
+
+.moment-btn {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 44px;
+  padding: .35rem .82rem;
+  border: 1.5px solid #a89a8e;
+  border-radius: 4% 3% 4% 2% / 8% 6% 7% 6%;
+  background: transparent;
+  color: var(--pencil);
+  font: 400 1.28rem/1.35 var(--moment-font);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .15s, border-color .15s;
+  touch-action: manipulation;
+}
+.moment-primary { color: #fff; background: var(--marker); border-color: var(--marker); }
+.moment-btn:disabled { opacity: .48; cursor: default; }
+.moment-btn:focus-visible { outline: 2px solid var(--marker); outline-offset: 3px; }
+@media (hover: hover) {
+  .moment-btn:enabled:hover { border-color: #76695b; background-color: #69544010; }
+  .moment-btn.moment-primary:enabled:hover { background-color: #8f2c28; border-color: #8f2c28; }
+}
+@container (max-width: 430px) {
+  .table-bid { gap: .4rem; }
+  .table-bid .bid-title { font-size: 1.2rem; }
+  .table-bid .moment-btn { padding-inline: .65rem; }
+  .table-offer { display: grid; grid-template-columns: minmax(0,1fr); gap: .5rem; }
+  .table-offer .bid-decision { margin-left: 0; justify-content: space-between; }
+}
+
+#paper:has(> .moment-slip) { padding: 0; }
+.moment-slip {
+  position: relative;
+  padding: clamp(24px, 4vw, 39px);
+  color: var(--pencil);
+  font-family: var(--moment-font);
+  overflow-wrap: anywhere;
+}
+.moment-meta { margin-bottom: .65rem; color: #6a5d52; font: 400 1.12rem/1.45 var(--moment-font); }
+.moment-title { margin: 0; font: 400 clamp(1.85rem, 5.2vw, 2.55rem)/1.28 var(--moment-font); }
+.moment-amount, .moment-phone {
+  margin: .35rem 0 .15rem;
+  color: var(--marker);
+  font: 400 clamp(3.2rem, 10vw, 4.7rem)/1.15 var(--moment-font);
+  white-space: nowrap;
+  letter-spacing: -.035em;
+}
+.moment-amount { display: flex; align-items: baseline; gap: .06em; font-variant-numeric: tabular-nums; }
+.moment-amount span { font-size: .48em; }
+.moment-amount strong { font: inherit; }
+.moment-amount.moment-large-number { font-size: clamp(2.15rem, 8.4vw, 3.4rem); }
+.moment-phone { font-size: clamp(2rem, 6.5vw, 3.3rem); }
+#paper .moment-note {
+  margin: .6rem 0 0;
+  color: var(--pencil);
+  font: 400 1.15rem/1.5 var(--moment-font);
+}
+.moment-actions { display: flex; align-items: center; gap: .7rem; margin-top: 1.4rem; }
+.moment-actions .moment-btn { flex: 1; }
+
+.moment-exchange { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin-top: 1.4rem; }
+.moment-card-option { display: flex; align-items: stretch; flex-direction: column; text-align: center; }
+.moment-card-art {
+  display: grid; place-items: center;
+  width: min(80%, 118px); margin: 0 auto; aspect-ratio: 1.3;
+  background: url("assets/slip.webp") center / 100% 100% no-repeat;
+  filter: drop-shadow(0 3px 2px #4b382b33);
+  transform: rotate(-5deg);
+}
+.moment-card-option:nth-child(2) .moment-card-art { transform: rotate(4deg); }
+.moment-card-art b { color: var(--marker); font: 400 clamp(2.5rem, 8vw, 3.8rem)/1 var(--moment-font); }
+.moment-card-owner { margin: .55rem 0 .7rem; font: 400 1.1rem/1.4 var(--moment-font); }
+.moment-exchange .moment-btn { font-size: 1.16rem; padding-inline: .25rem; }
+.moment-scores { list-style: none; padding: 0; margin: 1rem 0 0; }
+.moment-score { display: flex; align-items: center; justify-content: space-between; gap: .5rem; padding: .65rem 0; border-bottom: 1px dashed var(--pencil-line); }
+.moment-score div { display: grid; gap: .15rem; }
+.moment-score strong { font: 400 1.25rem/1.4 var(--moment-font); }
+#paper .moment-score small { font: 400 1.04rem/1.4 var(--moment-font); }
+.moment-score b { font: 400 clamp(1.13rem, 4.8vw, 1.55rem)/1.3 var(--moment-font); }
+.moment-won b { color: var(--marker); }
+.pad-header { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.pad-close {
+  display: grid; place-items: center; min-width: 44px; min-height: 44px;
+  margin-right: -.4rem; border: 0; background: transparent; color: var(--pencil);
+  font: 400 1.9rem/1.1 var(--moment-font); cursor: pointer;
+}
+.pad-readout {
+  display: flex; align-items: baseline; justify-content: flex-end; gap: .35rem; min-height: 3.5rem;
+  margin: .7rem 0 1rem; padding: .35rem .15rem;
+  border-bottom: 1.5px solid var(--pencil-line); color: var(--marker);
+  font: 400 1.7rem/1.25 var(--moment-font);
+}
+#bank-amount {
+  color: var(--marker); font: 400 clamp(2.05rem, 8vw, 3rem)/1.25 var(--moment-font);
+  font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+}
+.pad-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; }
+.pad-key {
+  min-height: 48px; padding: .25rem .35rem; border: 1px solid #b7a89b; border-radius: 3% 2% 5% 2% / 6% 8% 5% 7%;
+  color: var(--pencil); background: #fff9;
+  font: 400 1.8rem/1.16 var(--moment-font);
+  touch-action: manipulation; cursor: pointer;
+}
+.pad-key[data-key="back"], .pad-key[data-key="clear"] { font-size: 1.18rem; font-weight: 400; }
+.pad-submit { width: 100%; min-height: 46px; margin-top: .8rem; }
+.pad-key:focus-visible, .pad-close:focus-visible { outline: 2px solid var(--marker); outline-offset: 2px; }
+.pad-key:active { background: #e3d9cf; }
+@media (hover: hover) { .pad-key:hover { background: #eee7df; } }
+@media (prefers-reduced-motion: reduce) { .moment-btn { transition: none; } }
