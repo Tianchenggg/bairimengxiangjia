@@ -1,5 +1,7 @@
 # 白日梦想家
 
+最近在抖音爆火的 **iPhone 18 Pro 翻牌挑战**，现在可以和朋友玩同款了。桌上九张牌，一张写着「iPhone 18 Pro」，一张只写着「1 元」。
+
 [![白日梦想家的游戏桌，九张红字白纸牌和一张手写奖励清单。点击开始游戏。](docs/preview/table.jpg)](https://bairimengxiangjia.deed.page/)
 
 两个人共用一部手机或一台电脑。一个人翻牌，另一个人当银行家，决定什么时候开价。[开始双人游戏 →](https://bairimengxiangjia.deed.page/)
